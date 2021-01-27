@@ -3,7 +3,7 @@ import { IsEmail, MaxLength, MinLength } from 'class-validator';
 export class UserSignUpDTO {
   @MinLength(3)
   @MaxLength(20)
-  firstName: string;
+  username: string;
 
   @IsEmail()
   emailId: string;
