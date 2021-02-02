@@ -5,15 +5,18 @@ import {
   Param,
   Patch,
   Post,
+  UseFilters,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
+import { MongoExceptionFilter } from 'src/filters/mongo.filter';
 
 import { UserSignInDTO } from './dto/user-signIn.dto';
 import { UserSignUpDTO } from './dto/user-signUp.dto';
 import { UserService } from './user.service';
 
 @Controller('users')
+@UseFilters(MongoExceptionFilter)
 export class UserController {
   constructor(private userService: UserService) {}
 
